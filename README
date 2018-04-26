@@ -1,9 +1,28 @@
 ## Linux环境下构建Android的libvncserver库
+
+### 部署NDK
 ```
+1、下载ndk的linux版本安装包 android-ndk-r15c-linux-x86_64.zip
+
+2、直接解压到自己规划好的目录中 ~/Local/
+   unzip android-ndk-r15c-linux-x86_64.zip -d ~/Local/
+```
+
+### 编译libvncserver
+```
+mkdir android-build
+
+cd android-build
+
+cmake .. -DANDROID_NDK=~/Local/android-ndk-r15c -DCMAKE_TOOLCHAIN_FILE=~/Local/android-ndk-r15c/build/cmake/android.toolchain.cmake -DANDROID_NATIVE_API_LEVEL=21 -DWITH_PNG=OFF
+
+cmake --build .
+
 ```
 
 ## Windows环境下构建Android的libvncserver库
 ```
+暂且未编译通过
 ```
 
 [![Build Status](https://travis-ci.org/LibVNC/libvncserver.svg?branch=master)](https://travis-ci.org/LibVNC/libvncserver) [![Build status](https://ci.appveyor.com/api/projects/status/fao6m1md3q4g2bwn/branch/master?svg=true)](https://ci.appveyor.com/project/bk138/libvncserver/branch/master)
